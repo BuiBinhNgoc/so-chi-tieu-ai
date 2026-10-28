@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220"><title>Sổ Chi Tiêu AI</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <main id="auth" class="auth-wrap hidden">
+    <section class="auth-card">
+      <div class="brand-mark">₫</div><p class="eyebrow">QUẢN LÝ TÀI CHÍNH CÁ NHÂN</p>
+      <h1>Sổ Chi Tiêu <span>AI</span></h1><p class="muted">Theo dõi thu chi, lập ngân sách và hiểu thói quen tài chính của bạn.</p>
+      <div class="auth-tabs"><button class="tab active" data-auth="login">Đăng nhập</button><button class="tab" data-auth="register">Tạo tài khoản</button></div>
+      <form id="auth-form" class="stack">
+        <label>Tên đăng nhập<input name="username" required minlength="3" autocomplete="username" placeholder="Tên đăng nhập"></label>
+        <label>Mật khẩu<input name="password" type="password" required minlength="8" autocomplete="current-password" placeholder="Ít nhất 8 ký tự"></label>
+        <button class="btn primary wide" type="submit" id="auth-submit">Đăng nhập</button>
+      </form>
+      <div class="demo-note"><strong>Tài khoản demo</strong><br>binh <span>·</span> Demo@12345</div>
+      <p id="auth-error" class="error"></p>
+    </section>
+  </main>
+
+  <div id="app" class="layout hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard"><span class="brand-mark small">₫</span><span>Sổ Chi Tiêu<strong>AI</strong></span></a>
+      <div class="side-label">TỔNG QUAN</div>
+      <nav id="nav">
+        <a href="#dashboard" data-page="dashboard" class="nav-item active"><span>▦</span> Tổng quan</a>
+        <a href="#transactions" data-page="transactions" class="nav-item"><span>↕</span> Giao dịch</a>
+        <a href="#categories" data-page="categories" class="nav-item"><span>▤</span> Danh mục</a>
+        <a href="#budgets" data-page="budgets" class="nav-item"><span>◷</span> Ngân sách</a>
+        <a href="#goals" data-page="goals" class="nav-item"><span>◎</span> Mục tiêu tiết kiệm</a>
+        <a href="#assistant" data-page="assistant" class="nav-item"><span>✦</span> Trợ lý AI <i>NEW</i></a>
+      </nav>
+      <div class="sidebar-bottom"><div class="privacy"><span>🔒</span><div><b>Dữ liệu riêng tư</b><small>Chỉ bạn xem được dữ liệu</small></div></div><button id="logout" class="logout">↪ &nbsp; Đăng xuất</button></div>
+    </aside>
+    <section class="main-area">
+      <header class="topbar"><button id="mobile-menu" class="icon-btn" aria-label="Mở menu">☰</button><div class="crumb">Tài chính cá nhân <span>/</span> <b id="page-label">Tổng quan</b></div><div class="user-chip"><span class="avatar" id="avatar">B</span><span id="username-label">Bình</span><span class="online-dot"></span></div></header>
+      <div class="content">
+        <section id="page-dashboard" class="page"></section>
+        <section id="page-transactions" class="page hidden"></section>
+        <section id="page-categories" class="page hidden"></section>
+        <section id="page-budgets" class="page hidden"></section>
+        <section id="page-goals" class="page hidden"></section>
+        <section id="page-assistant" class="page hidden"></section>
+      </div>
+    </section>
+  </div>
+  <div id="modal-root"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

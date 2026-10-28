@@ -1,0 +1,19 @@
+services:
+  expense-ai:
+    build: .
+    container_name: expense-ai
+    ports:
+      - "8000:8000"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8000
+      EXPENSE_DB: /data/expense_ai.db
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_BASE_URL: ${AI_BASE_URL:-https://api.deepseek.com/chat/completions}
+      AI_MODEL: ${AI_MODEL:-deepseek-flash}
+    volumes:
+      - expense_data:/data
+    restart: unless-stopped
+
+volumes:
+  expense_data:
